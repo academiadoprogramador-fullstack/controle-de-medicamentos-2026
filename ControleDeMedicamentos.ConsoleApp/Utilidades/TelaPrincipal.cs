@@ -1,11 +1,15 @@
 using ControleDeMedicamentos.ConsoleApp.Compartilhado;
+using ControleDeMedicamentos.ConsoleApp.ModuloFornecedores;
 
 namespace ControleDeMedicamentos.ConsoleApp.Utilidades;
 
 public class TelaPrincipal
 {
-    public TelaPrincipal()
+    private readonly IRepositorio<Fornecedor> repositorioFornecedor;
+
+    public TelaPrincipal(IRepositorio<Fornecedor> repositorioFornecedor)
     {
+        this.repositorioFornecedor = repositorioFornecedor;
     }
 
     public ITelaOpcoes? ApresentarMenuOpcoesPrincipal()
@@ -23,6 +27,9 @@ public class TelaPrincipal
         Console.WriteLine("---------------------------------");
         Console.Write("> ");
         string? opcaoMenuPrincipal = Console.ReadLine()?.ToUpper();
+
+        if (opcaoMenuPrincipal == "3")
+            return new TelaFornecedor(repositorioFornecedor);
 
         return null;
     }
