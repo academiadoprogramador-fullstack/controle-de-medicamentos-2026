@@ -23,5 +23,7 @@ public class RequisicaoEntrada : RequisicaoBase
         Funcionario = funcionario;
         Medicamento = medicamento;
         Quantidade = quantidade;
+
+        Medicamento.RegistrarRequisicao(this);
     }
 }
