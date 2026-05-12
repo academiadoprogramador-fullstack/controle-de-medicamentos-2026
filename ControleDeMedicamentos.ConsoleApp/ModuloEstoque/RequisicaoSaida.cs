@@ -9,7 +9,6 @@ public class RequisicaoSaida : RequisicaoBase
 
     public RequisicaoSaida()
     {
-        Tipo = TipoRequisicao.Saida;
     }
 
     public RequisicaoSaida(
@@ -21,8 +20,6 @@ public class RequisicaoSaida : RequisicaoBase
         MedicamentosPrescritos = medicamentosPrescritos;
 
         foreach (MedicamentoPrescrito medPresc in MedicamentosPrescritos)
-        {
             medPresc.Medicamento.RegistrarRequisicao(this);
-        }
     }
 }

@@ -11,7 +11,6 @@ public class RequisicaoEntrada : RequisicaoBase
 
     public RequisicaoEntrada()
     {
-        Tipo = TipoRequisicao.Entrada;
     }
 
     public RequisicaoEntrada(
