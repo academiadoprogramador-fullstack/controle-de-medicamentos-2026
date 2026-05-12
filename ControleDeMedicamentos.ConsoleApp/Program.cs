@@ -2,6 +2,7 @@
 using System.Text.Json;
 using ControleDeMedicamentos.ConsoleApp.Compartilhado;
 using ControleDeMedicamentos.ConsoleApp.Compartilhado.Arquivos;
+using ControleDeMedicamentos.ConsoleApp.ModuloEstoque;
 using ControleDeMedicamentos.ConsoleApp.ModuloFornecedores;
 using ControleDeMedicamentos.ConsoleApp.ModuloFuncionarios;
 using ControleDeMedicamentos.ConsoleApp.ModuloMedicamentos;
@@ -24,12 +25,14 @@ IRepositorio<Paciente> repositorioPaciente = new RepositorioPacienteEmArquivo(co
 IRepositorio<Funcionario> repositorioFuncionario = new RepositorioFuncionarioEmArquivo(contexto);
 IRepositorio<Fornecedor> repositorioFornecedor = new RepositorioFornecedorEmArquivo(contexto);
 IRepositorio<Medicamento> repositorioMedicamento = new RepositorioMedicamentoEmArquivo(contexto);
+IRepositorioRequisicao repositorioRequisicao = new RepositorioRequisicaoEmArquivo(contexto);
 
 TelaPrincipal telaPrincipal = new TelaPrincipal(
     repositorioPaciente,
     repositorioFuncionario,
     repositorioFornecedor,
-    repositorioMedicamento
+    repositorioMedicamento,
+    repositorioRequisicao
 );
 
 while (true)
@@ -65,6 +68,14 @@ while (true)
 
             else if (opcaoSubMenu == "4")
                 telaCrud.VisualizarTodos(deveExibirCabecalho: true);
+        }
+
+        else if (telaSelecionada is TelaRequisicao telaRequisicao)
+        {
+            if (opcaoSubMenu == "1")
+                telaRequisicao.CadastrarRequisicaoEntrada();
+            else if (opcaoSubMenu == "2")
+                telaRequisicao.VisualizarRequisicoesEntrada();
         }
     }
 }
