@@ -63,7 +63,8 @@ public class TelaPrincipal
             return new TelaRequisicao(
                 repositorioRequisicao,
                 repositorioFuncionario,
-                repositorioMedicamento
+                repositorioMedicamento,
+                repositorioPaciente
             );
         }
 

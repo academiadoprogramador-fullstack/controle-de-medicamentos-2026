@@ -74,8 +74,15 @@ while (true)
         {
             if (opcaoSubMenu == "1")
                 telaRequisicao.CadastrarRequisicaoEntrada();
+
             else if (opcaoSubMenu == "2")
                 telaRequisicao.VisualizarRequisicoesEntrada();
+
+            else if (opcaoSubMenu == "3")
+                telaRequisicao.CadastrarRequisicaoSaida();
+
+            else if (opcaoSubMenu == "4")
+                telaRequisicao.VisualizarRequisicoesSaida();
         }
     }
 }

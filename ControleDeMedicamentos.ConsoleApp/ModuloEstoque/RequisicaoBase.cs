@@ -3,9 +3,9 @@ using ControleDeMedicamentos.ConsoleApp.Utilidades;
 
 namespace ControleDeMedicamentos.ConsoleApp.ModuloEstoque;
 
-// atributo
 [JsonPolymorphic(TypeDiscriminatorPropertyName = "Tipo")]
 [JsonDerivedType(typeof(RequisicaoEntrada), (int)TipoRequisicao.Entrada)]
+[JsonDerivedType(typeof(RequisicaoSaida), (int)TipoRequisicao.Saida)]
 public abstract class RequisicaoBase
 {
     public string Id { get; set; } = GeradorIds.GerarIdCurto();

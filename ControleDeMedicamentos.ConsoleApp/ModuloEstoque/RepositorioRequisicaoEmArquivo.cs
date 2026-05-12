@@ -32,4 +32,17 @@ public class RepositorioRequisicaoEmArquivo : IRepositorioRequisicao
 
         return requisicoesEntrada;
     }
+
+    public List<RequisicaoSaida> SelecionarRequisicoesSaida()
+    {
+        List<RequisicaoSaida> requisicoesSaida = new List<RequisicaoSaida>();
+
+        foreach (RequisicaoBase req in registros)
+        {
+            if (req is RequisicaoSaida reqSaida)
+                requisicoesSaida.Add(reqSaida);
+        }
+
+        return requisicoesSaida;
+    }
 }
